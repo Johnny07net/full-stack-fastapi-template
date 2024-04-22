@@ -34,6 +34,17 @@ const Sidebar = () => {
   }
 
   return (
+            /**
+     * This component is a responsive sidebar that behaves differently on mobile and desktop screens.
+     * 
+     * On mobile devices, the component renders an IconButton that when clicked, opens a Drawer 
+     * from the left side of the screen. The Drawer contains the logo, sidebar items and a logout button.
+     * If there is a current user, it will also display the email of the logged in user.
+     * 
+     * On desktop devices, the component renders a Box with the same content as the Drawer, but displayed 
+     * statically on the screen. It uses the 'position: sticky' css property to keep the content in view 
+     * while scrolling.
+     */
     <>
       {/* Mobile */}
       <IconButton

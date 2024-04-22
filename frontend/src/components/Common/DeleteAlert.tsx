@@ -69,6 +69,26 @@ const Delete = ({ type, id, isOpen, onClose }: DeleteProps) => {
   }
 
   return (
+        /**
+     * The `<AlertDialog>` component is a custom dialog box that is used to confirm the deletion of a given `type` (like a User). 
+     * 
+     * If `isOpen` prop is true, the AlertDialog will be visible, and it will close when the `onClose` method is invoked.
+     * The `leastDestructiveRef` prop is used to refer to the element that would least likely to destroy data (in this case, the cancel button).
+     * The size of the AlertDialog is responsive, with "sm" as the base size and "md" for medium screens. The AlertDialog is also centered on the screen.
+     * 
+     * Inside the AlertDialog, there is an `AlertDialogOverlay`, which is the semi-transparent overlay behind the AlertDialog.
+     * Inside `AlertDialogOverlay`, there is `AlertDialogContent` which contains the actual content of the AlertDialog.
+     * The `AlertDialogContent` is a form that on submission, calls the `onSubmit` method.
+     * 
+     * The `AlertDialogHeader` displays the title of the AlertDialog, which is "Delete {type}".
+     * 
+     * The `AlertDialogBody` contains the main content of the AlertDialog. If the `type` is "User", it will display a warning that all items associated with this user will also be permanently deleted.
+     * The dialog also warns the user that this action cannot be undone.
+     * 
+     * The `AlertDialogFooter` contains two buttons: a "Delete" button and a "Cancel" button.
+     * The "Delete" button submits the form, and becomes disabled and shows a loading spinner while `isSubmitting` is true.
+     * The "Cancel" button invokes the `onClose` method when clicked, and becomes disabled while `isSubmitting` is true.
+     */
     <>
       <AlertDialog
         isOpen={isOpen}
@@ -80,7 +100,7 @@ const Delete = ({ type, id, isOpen, onClose }: DeleteProps) => {
         <AlertDialogOverlay>
           <AlertDialogContent as="form" onSubmit={handleSubmit(onSubmit)}>
             <AlertDialogHeader>Delete {type}</AlertDialogHeader>
-
+    
             <AlertDialogBody>
               {type === "User" && (
                 <span>
@@ -90,7 +110,7 @@ const Delete = ({ type, id, isOpen, onClose }: DeleteProps) => {
               )}
               Are you sure? You will not be able to undo this action.
             </AlertDialogBody>
-
+    
             <AlertDialogFooter gap={3}>
               <Button variant="danger" type="submit" isLoading={isSubmitting}>
                 Delete

@@ -13,6 +13,20 @@ const Navbar = ({ type }: NavbarProps) => {
   const addItemModal = useDisclosure()
 
   return (
+        /**
+     * This method is a component meant to be rendered in a React application.
+     * The component renders a flex container with a button and two modals.
+     * 
+     * The button, when clicked, will open one of two modals depending on the type provided to the component.
+     * If the type is "User", the `addUserModal` will be opened, and if the type is not "User", the `addItemModal` will be opened.
+     * 
+     * The two modals `addUserModal` and `addItemModal` are passed as props to `AddUser` and `AddItem` components respectively.
+     * `isOpen` and `onClose` are callbacks used to control the opening and closing of the modal.
+     * 
+     * An icon of a plus is displayed on the button along with the text "Add {type}"
+     *
+     * Currently, there is a placeholder for a search input field which is not yet implemented.
+    */
     <>
       <Flex py={8} gap={4}>
         {/* TODO: Complete search functionality */}

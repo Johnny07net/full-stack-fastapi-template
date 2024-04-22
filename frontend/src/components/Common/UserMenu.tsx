@@ -20,6 +20,20 @@ const UserMenu = () => {
   }
 
   return (
+        /**
+     * This is a method for rendering a menu in a fixed position at the top right of the screen.
+     * This menu is hidden on small screens (base) and visible on medium and larger screens (md: "block").
+     * 
+     * The menu is composed of a button and a list. 
+     * The button, represented by an astronaut icon, opens the menu when clicked.
+     * The list contains two items: 'My Profile' and 'Log Out'. 
+     * 
+     * 'My Profile' is represented by a user icon and, when clicked, redirects the user to the settings page.
+     * 'Log Out' is represented by a logout icon and, when clicked, logs out the user from the app.
+     * The 'log out' option is emphasized with a bold font and a different color.
+     *
+     * This entire component is enclosed in a Box element for better placement and styling.
+     */
     <>
       {/* Desktop */}
       <Box

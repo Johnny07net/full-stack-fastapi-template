@@ -3,6 +3,16 @@ import { Link } from "@tanstack/react-router"
 
 const NotFound = () => {
   return (
+        /**
+     * This method renders a 404 error page with a layout including a main heading, error message and a 'Go back' button.
+     * The layout is centered in a container that stretches to fill the viewport's height.
+     * 
+     * The main heading '404' is styled with a bold, large font and a color taken from the `ui.main` theme.
+     * Two subheadings 'Oops!' and 'Page not found.' are displayed beneath the main heading.
+     * 
+     * The 'Go back' button is styled with an outline variant and a color taken from the `ui.main` theme. 
+     * When clicked, the button redirects user to the homepage ("/").
+     */
     <>
       <Container
         h="100vh"
