@@ -35,6 +35,18 @@ const MembersTableBody = () => {
   })
 
   return (
+        /**
+     * This component renders a table body (`<Tbody>`) that lists all the users in the `users.data` array.
+     * Each entry is a table row (`<Tr>`) with the following columns:
+     * 
+     * 1. Full Name: In case the `full_name` property is not available, it displays `N/A`. Also, it includes a badge indicating the current user.
+     * 2. Email: Displays the user's email.
+     * 3. Role: Displays if the user is a 'Superuser' or a 'User'.
+     * 4. Status: Displays the user's activity status. A green circle indicates the user is active, a red one indicates the user is inactive.
+     * 5. Action: This column contains an action menu where user-related actions can be performed. However, actions are disabled for the current logged-in user.
+     *
+     * It is a TypeScript React Function Component that uses the Chakra-UI library for UI elements.
+     */
     <Tbody>
       {users.data.map((user) => (
         <Tr key={user.id}>
@@ -75,18 +87,47 @@ const MembersTableBody = () => {
 
 const MembersBodySkeleton = () => {
   return (
+        /**
+     * This component renders a table body (<Tbody>) with one table row (<Tr>).
+     * Inside the table row, it creates an array of five elements, fills it with null,
+     * then maps each element to a table data (<Td>) component.
+     * 
+     * For each <Td> component, a key attribute is assigned with the current array index.
+     * Inside the <Td> component, it renders a <SkeletonText> component.
+     * 
+     * The <SkeletonText> component has the following properties:
+     * - `noOfLines` is set to 1, meaning it will display one line of skeleton (a placeholder typically shown during content loading)
+     * - `paddingBlock` is set to "16px", meaning it will have a block-padding of 16 pixels.
+     * 
+     * This component could be used to display a loading state for a table with five columns.
+     */
     <Tbody>
-      <Tr>
-        {new Array(5).fill(null).map((_, index) => (
-          <Td key={index}>
-            <SkeletonText noOfLines={1} paddingBlock="16px" />
-          </Td>
-        ))}
-      </Tr>
+          <Tr>
+            {new Array(5).fill(null).map((_, index) => (
+              <Td key={index}>
+                <SkeletonText noOfLines={1} paddingBlock="16px" />
+              </Td>
+            ))}
+          </Tr>
     </Tbody>
   )
 }
 
+/**
+ * `Admin` component renders the User Management page for admin users.
+ *
+ * The page is wrapped in a container that expands to the full width of the page.
+ * The page heading is "User Management", centered on small screens and aligned left on medium and larger screens.
+ * A navigation bar, specific for User type is included.
+ * The main content of the page is a table within a table container. The table's font size is medium with small size on 
+ * small screens and medium size on medium and larger screens. The table has five columns: Full name, Email, Role, Status, 
+ * and Actions, each occupying a certain percentage of the table width.
+ * The table body content is loaded asynchronously, with a loading skeleton shown as the fallback while the data is being fetched.
+ * 
+ * @function Admin
+ * @component
+ * @returns JSX.Element - the rendered Admin component
+ */
 function Admin() {
   return (
     <Container maxW="full">

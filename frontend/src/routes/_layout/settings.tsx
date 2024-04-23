@@ -27,6 +27,26 @@ export const Route = createFileRoute("/_layout/settings")({
   component: UserSettings,
 })
 
+/**
+ * `UserSettings` is a functional component that renders the User Settings section in an application.
+ * This section displays different tabs depending on the user's role. 
+ *
+ * It uses the `useQueryClient` hook from React Query to get the current user data, specifically
+ * checking if the user is a superuser.
+ *
+ * If the current user is a superuser, it slices the `tabsConfig` array to include only the first 3 tabs.
+ * If not, it uses the entire `tabsConfig` array as it is.
+ *
+ * Each tab from the final tabs array is then rendered as an individual Tab component with the 
+ * appropriate title and content specified by the `tab.component`.
+ *
+ * Note: The `tabsConfig` array is assumed to be defined elsewhere in the code, and should be an array of
+ * objects, with each object having a `title` and a `component` property.
+ *
+ * @returns A Container component from Chakra UI that contains a Heading and a Tabs component.
+ * The Tabs component is composed of a TabList (which contains the tab titles) and TabPanels 
+ * (which contains the tab content).
+ */
 function UserSettings() {
   const queryClient = useQueryClient()
   const currentUser = queryClient.getQueryData<UserPublic>(["currentUser"])
