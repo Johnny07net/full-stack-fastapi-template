@@ -12,6 +12,14 @@ const Appearance = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
+        /**
+     * Renders a user interface component for toggling the color mode of the application.
+     * The component consists of a header titled 'Appearance' and a radio group 
+     * for choosing between 'Light mode' and 'Dark mode'. 
+     * The 'Light mode' option is marked as 'Default'. 
+     * The color mode value is linked to the 'colorMode' state variable, and any change triggers the 'toggleColorMode' function. 
+     * This component is wrapped inside a full-width container.
+     */
     <>
       <Container maxW="full">
         <Heading size="sm" py={4}>

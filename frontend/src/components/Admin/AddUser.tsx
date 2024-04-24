@@ -75,6 +75,22 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
   }
 
   return (
+        /**
+     * This is a modal form used to add a new user. The form includes fields for 
+     * the user's email, full name, password, confirm password, and two checkboxes 
+     * to indicate whether the user is a superuser or is active. 
+     * The form performs validations including:
+     * - Email is a required field and must match a valid email pattern.
+     * - Full name is a required field.
+     * - Password is a required field and must be at least 8 characters long.
+     * - Confirm password is a required field and must match the password.
+     * The form also displays appropriate error messages for invalid inputs.
+     * The modal is centered and its size is responsive, being small on base 
+     * screens and medium on medium screens. On submission of the form, 
+     * the `handleSubmit(onSubmit)` function is called. There are two buttons at the
+     * bottom of the form: a 'Save' button (which submits the form) and a 
+     * 'Cancel' button (which closes the modal).
+     */
     <>
       <Modal
         isOpen={isOpen}

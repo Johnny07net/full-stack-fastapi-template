@@ -81,6 +81,34 @@ const EditUser = ({ user, isOpen, onClose }: EditUserProps) => {
   }
 
   return (
+        /**
+     * This component renders a modal for editing a user's information.
+     * 
+     * The modal contains a form with fields for the user's email, full name, and password. 
+     * The email and password fields have validation implemented. The password field requires
+     * a minimum of 8 characters. There is also a confirm password field which validates 
+     * whether the confirm password and password fields match. 
+     * 
+     * Additionally, there are checkboxes to toggle whether the user is a superuser and whether 
+     * the user is active.
+     * 
+     * The form has save and cancel buttons. The save button is disabled until the form is dirty.
+     * While the form is being submitted, the save button shows a loading state.
+     * 
+     * Closing the modal triggers the onClose event.
+     *
+     * @param {boolean} isOpen - Controls if the modal is open or not.
+     * @param {function} onClose - Event to be handled after the modal is closed.
+     * @param {function} handleSubmit - Event to be handled when the form is submitted.
+     * @param {function} onSubmit - Callback to be executed after the form is submitted.
+     * @param {object} errors - Object containing information about field validation errors.
+     * @param {boolean} isDirty - Indicates if any field values have been changes.
+     * @param {boolean} isSubmitting - Indicates if the form is being submitted.
+     * @param {function} register - Function to link input fields with validation rules.
+     * @param {function} getValues - Function to get the current field values.
+     * 
+     * @returns {JSX.Element} A modal for editing user's information.
+     */
     <>
       <Modal
         isOpen={isOpen}
@@ -160,7 +188,7 @@ const EditUser = ({ user, isOpen, onClose }: EditUserProps) => {
               </FormControl>
             </Flex>
           </ModalBody>
-
+    
           <ModalFooter gap={3}>
             <Button
               variant="primary"

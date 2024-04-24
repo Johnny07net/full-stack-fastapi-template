@@ -62,6 +62,28 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
   }
 
   return (
+        /**
+     * This component renders a modal pop-up that contains a form for adding a new item.
+     * The form consists of two fields: Title and Description. The Title field is required and
+     * the Description field is optional.
+     *
+     * When the form is submitted, the `onSubmit` function is called. While the form is submitting,
+     * the Save button shows a loading spinner. 
+     * 
+     * The modal is centered and its size varies depending on the viewport: 
+     * it's small on base viewports and medium on medium-sized viewports.
+     * 
+     * There's a cancel button that dismisses the modal when clicked, calling the `onClose` function.
+     * If there are any validation errors in the Title field, the errors will be displayed below the input field.
+     *
+     * @param {boolean} isOpen - Boolean indicating whether the modal is open or not.
+     * @param {function} onClose - Function to call when the modal needs to be closed.
+     * @param {function} onSubmit - Function to call when the form is submitted.
+     * @param {boolean} isSubmitting - Boolean indicating whether the form is currently being submitted or not.
+     * @param {function} handleSubmit - Function from React Hook Form to handle form submission.
+     * @param {object} register - Function from React Hook Form for registering input fields.
+     * @param {object} errors - Object containing any validation errors that occurred.
+     */
     <>
       <Modal
         isOpen={isOpen}
@@ -98,7 +120,7 @@ const AddItem = ({ isOpen, onClose }: AddItemProps) => {
               />
             </FormControl>
           </ModalBody>
-
+    
           <ModalFooter gap={3}>
             <Button variant="primary" type="submit" isLoading={isSubmitting}>
               Save

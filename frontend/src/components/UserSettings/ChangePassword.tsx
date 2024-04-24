@@ -52,6 +52,19 @@ const ChangePassword = () => {
   }
 
   return (
+        /**
+     * This component renders a form that allows the user to change their password. 
+     * The form consists of three fields: 'Current Password', 'Set Password', and 'Confirm Password'. 
+     * Each field is validated to ensure it is filled before form submission is allowed.
+     * 'Set Password' and 'Confirm Password' fields also have additional validation rules applied on them.
+     *
+     * If the field validation fails, an error message is displayed to the user under the respective invalid field.
+     *
+     * When the form is submitted by pressing the 'Save' button, the 'handleSubmit' method is triggered with the 'onSubmit' callback.
+     * The 'Save' button also has a loading state that is activated during form submission.
+     *
+     * The form and its elements are styled using a mix of Chakra UI components and properties.
+     */
     <>
       <Container maxW="full" as="form" onSubmit={handleSubmit(onSubmit)}>
         <Heading size="sm" py={4}>

@@ -69,6 +69,24 @@ const EditItem = ({ item, isOpen, onClose }: EditItemProps) => {
   }
 
   return (
+        /**
+     * This method renders a modal popover for editing an item. The modal contains a form 
+     * with fields for 'Title' and 'Description'. The 'Title' field is required and will
+     * display an error message if left blank.
+     * 
+     * The modal is conditionally populated based on the 'isOpen' prop. If 'isOpen' is 
+     * true, the modal will appear; if false, it will not. Clicking the 'onClose' button, 
+     * or 'Cancel' button, will close the modal.
+     * 
+     * The 'size' prop for the modal can take base or medium size, where the base is 'sm'
+     * and medium is 'md'. The modal is always centered.
+     * 
+     * The 'onSubmit' event of the form will trigger the 'handleSubmit' method with 'onSubmit'
+     * callback function as its parameter.
+     * 
+     * The 'Save' button will be disabled until the form is dirty (values have been altered),
+     * and will show a loading state when the form is being submitted.
+     */
     <>
       <Modal
         isOpen={isOpen}
