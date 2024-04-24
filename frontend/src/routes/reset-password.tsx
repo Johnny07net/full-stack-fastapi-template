@@ -32,6 +32,23 @@ export const Route = createFileRoute("/reset-password")({
   },
 })
 
+/**
+ * `ResetPassword` is a functional component that provides a form for resetting a user's password.
+ * It uses the `useForm` hook from react-hook-form to manage form state, validation and submission.
+ * 
+ * On successful submission, it will make a call to the `LoginService.resetPassword` method to update the user's password.
+ * It also uses a URL parameter "token" as part of the request to the `LoginService.resetPassword` method.
+ *
+ * After successful password change, a toast message will be shown, the form will be reset and the user will be navigated to the login page.
+ *
+ * If there's an error during password change, a toast message will be shown with the error details.
+ *
+ * The form includes two fields: 'password' and 'confirm_password' which are both required. 
+ * The 'password' field must comply with password rules provided by `passwordRules()` function. 
+ * The 'confirm_password' field must match the 'password' field, this is validated with `confirmPasswordRules()` function.
+ *
+ * @returns JSX.Element
+ */
 function ResetPassword() {
   const {
     register,

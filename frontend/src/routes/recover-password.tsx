@@ -30,6 +30,16 @@ export const Route = createFileRoute("/recover-password")({
   },
 })
 
+/**
+ * `RecoverPassword` is a functional component that renders a password recovery form.
+ * When submitted, it calls a password recovery service and displays a toast notification confirming the email was sent.
+ *
+ * The form contains an email input field that must be filled out correctly before submission is allowed.
+ * If the form is submitted with an empty or invalid email, it will display an error message under the input field.
+ * There is also a "Continue" button that submits the form and shows a loading indicator while the request is processing.
+ *
+ * This component uses `useForm` hook from `react-hook-form` for form handling and validation, and a custom hook `useCustomToast` for toast notifications.
+ */
 function RecoverPassword() {
   const {
     register,

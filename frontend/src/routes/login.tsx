@@ -36,6 +36,16 @@ export const Route = createFileRoute("/login")({
   },
 })
 
+/**
+ * This function renders the login form for the application. It uses a useForm hook for form validation and submission handling.
+ * On form submission, it uses loginMutation from useAuth hook to perform authentication.
+ * It also handles display of any errors during form submission or authentication.
+ * It contains a toggleable password input field, with show and setShow states controlled by the useBoolean hook.
+ * 
+ * @returns A JSX element containing the login form. This includes an image (logo), username and password fields, 
+ * a link to the recover password page, and a submit button. The password field includes a toggle to switch 
+ * between showing and hiding the password text.
+ */
 function Login() {
   const [show, setShow] = useBoolean()
   const { loginMutation, error, resetError } = useAuth()
