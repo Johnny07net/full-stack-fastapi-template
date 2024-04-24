@@ -30,6 +30,17 @@ def init(db_engine: Engine) -> None:
 
 
 def main() -> None:
+    """
+    This is the main function of the program which initializes a service.
+
+    The function first logs the initiation of the service. Then it calls the 
+    init() function with an engine object as parameter to initiate the service.
+    Once the service is successfully initiated, the function logs that the 
+    service has finished initializing.
+
+    Return:
+    None: This function doesn't return anything.
+    """
     logger.info("Initializing service")
     init(engine)
     logger.info("Service finished initializing")

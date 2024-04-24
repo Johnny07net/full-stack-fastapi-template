@@ -16,6 +16,30 @@ from typing_extensions import Self
 
 
 def parse_cors(v: Any) -> list[str] | str:
+    """
+    Parses the input value to a list of strings or returns the input value as it is, based on the following conditions.
+
+    1. If the input value is a string and does not start with "[", it splits the string by comma, trims any leading or trailing whitespace from each substring, and returns a list of these substrings.
+    2. If the input value is a list or a string, it just returns the input value as it is.
+    3. If the input value does not match above conditions, it raises a ValueError.
+
+    Args:
+        v (Any): The input value to be parsed. This could be of any type.
+
+    Returns:
+        list[str] | str: If the input value is a string and does not start with "[", returns a list of strings. If the input value is a list or a string, returns the input value as it is.
+
+    Raises:
+        ValueError: If the input value does not match any of the conditions.
+
+    Example usage:
+        >>> parse_cors("hello, world")
+        ['hello', 'world']
+        >>> parse_cors(["hello", "world"])
+        ['hello', 'world']
+        >>> parse_cors("hello")
+        'hello'
+    """
     if isinstance(v, str) and not v.startswith("["):
         return [i.strip() for i in v.split(",")]
     elif isinstance(v, list | str):
@@ -97,6 +121,23 @@ class Settings(BaseSettings):
     USERS_OPEN_REGISTRATION: bool = False
 
     def _check_default_secret(self, var_name: str, value: str | None) -> None:
+        """
+        Checks if the given variable (var_name) has the default secret value of "changethis".
+    
+        If the value is "changethis", it generates a warning or raises a ValueError depending on the environment variable.
+        In a local environment, it will issue a warning to change the variable for security reasons, and in any other environment,
+        it will raise a ValueError to enforce the change of the secret value.
+    
+        Args:
+            var_name (str): The name of the variable to be checked.
+            value (str | None): The value of the variable to be checked.
+    
+        Raises:
+            ValueError: If the environment is not local and the value of the variable is "changethis".
+    
+        Warning:
+            If the environment is local and the value of the variable is "changethis", it will issue a warning to change the variable.
+        """
         if value == "changethis":
             message = (
                 f'The value of {var_name} is "changethis", '
